@@ -1,0 +1,5 @@
+node_modules/
+.env
+.DS_Store
+# Raw CSV downloads are too large for git; see README for how to get them.
+data/
