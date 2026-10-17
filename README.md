@@ -39,11 +39,15 @@ The City of Boston posts every restaurant health inspection online, but the data
    npm install
    ```
 3. Copy `.env.example` to `.env` and set `MONGO_URI` to your MongoDB connection string.
-4. Start the server:
+4. Import the inspection data. Download the CSV from [Food Establishment Inspections](https://data.boston.gov/dataset/food-establishment-inspections), save it as `data/inspections.csv`, then run:
+   ```bash
+   npm run import:inspections
+   ```
+5. Start the server:
    ```bash
    npm start
    ```
-5. Open http://localhost:3000.
+6. Open http://localhost:3000.
 
 ## Project Structure
 
