@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Restaurant | FoodSafe Boston</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/restaurant.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1><a href="index.html">FoodSafe Boston</a></h1>
+      <nav class="site-nav">
+        <a href="index.html">Search</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <a href="index.html" class="back-link">&larr; Back to search</a>
+
+      <p id="status" class="status" aria-live="polite">Loading...</p>
+
+      <section id="restaurant" class="restaurant" hidden>
+        <h2 id="restaurant-name"></h2>
+        <p id="restaurant-address" class="restaurant-address"></p>
+        <p class="restaurant-links">
+          <a id="maps-link" target="_blank" rel="noopener">Google Maps</a>
+          <a id="yelp-link" target="_blank" rel="noopener">Yelp</a>
+        </p>
+
+        <div class="tabs" role="tablist">
+          <button
+            type="button"
+            role="tab"
+            id="inspections-tab"
+            class="tab"
+            aria-controls="inspections-panel"
+            aria-selected="true"
+          >
+            Inspections
+          </button>
+          <button
+            type="button"
+            role="tab"
+            id="complaints-tab"
+            class="tab"
+            aria-controls="complaints-panel"
+            aria-selected="false"
+          >
+            311 Complaints
+          </button>
+        </div>
+
+        <div
+          id="inspections-panel"
+          role="tabpanel"
+          aria-labelledby="inspections-tab"
+        >
+          <p id="history-title" class="panel-note"></p>
+          <ul id="history" class="history"></ul>
+        </div>
+
+        <div
+          id="complaints-panel"
+          role="tabpanel"
+          aria-labelledby="complaints-tab"
+          hidden
+        >
+          <p class="panel-note">
+            311 complaints reported at this address will show here.
+          </p>
+        </div>
+
+        <section class="reviews-section" aria-labelledby="reviews-heading">
+          <h3 id="reviews-heading">Reviews</h3>
+          <form id="review-form" class="review-form">
+            <h4 id="review-form-title">Write a review</h4>
+            <div class="review-fields">
+              <label>
+                Your name
+                <input
+                  type="text"
+                  name="author"
+                  maxlength="50"
+                  placeholder="Anonymous"
+                />
+              </label>
+              <label>
+                Rating
+                <select name="rating" required>
+                  <option value="5">★★★★★ Great</option>
+                  <option value="4">★★★★ Good</option>
+                  <option value="3">★★★ OK</option>
+                  <option value="2">★★ Poor</option>
+                  <option value="1">★ Bad</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              Review
+              <textarea
+                name="text"
+                rows="4"
+                maxlength="1000"
+                required
+                placeholder="How clean was it? How was the food?"
+              ></textarea>
+            </label>
+            <div class="review-actions">
+              <button type="submit" id="review-submit">Post review</button>
+              <button type="button" id="review-cancel" class="secondary" hidden>
+                Cancel
+              </button>
+            </div>
+            <p id="review-message" class="form-message" aria-live="polite"></p>
+          </form>
+
+          <p id="reviews-status" class="panel-note"></p>
+          <ul id="reviews" class="reviews"></ul>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Data from Analyze Boston. Built by Yanli Wang and Jiaying Guo.</p>
+    </footer>
+
+    <script type="module" src="js/restaurant.js"></script>
+  </body>
+</html>

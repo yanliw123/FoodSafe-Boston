@@ -5,39 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FoodSafe Boston</title>
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/search.css" />
   </head>
   <body>
     <header class="site-header">
       <h1><a href="index.html">FoodSafe Boston</a></h1>
       <p>Check if a restaurant is clean before you eat there.</p>
       <nav class="site-nav">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="inspections.html">Inspections</a>
+        <a href="index.html" aria-current="page">Search</a>
       </nav>
     </header>
 
     <main class="container">
-      <section>
-        <h2>How to use</h2>
-        <ol>
-          <li>
-            <a href="inspections.html">Search a restaurant</a> by name, street
-            or zip code to see its latest health inspection.
-          </li>
-          <li>
-            Open a restaurant to see every past inspection, each violation and
-            how serious it was.
-          </li>
-          <li>
-            Look at the complaints map to see food safety problems residents
-            reported to Boston 311, or file your own.
-          </li>
-        </ol>
-      </section>
+      <p class="intro">
+        Search by name, street or zip code, then open a restaurant to see its
+        inspection history and 311 complaints. Filters apply to the latest
+        inspection in the date range.
+      </p>
+
+      <form id="search-form" class="search-form">
+        <label>
+          Name or street
+          <input type="search" name="q" placeholder="e.g. pizza, Tremont" />
+        </label>
+        <label>
+          Zip code
+          <input
+            type="text"
+            name="zip"
+            inputmode="numeric"
+            pattern="[0-9]{5}"
+            maxlength="5"
+            placeholder="02115"
+          />
+        </label>
+        <label>
+          Result
+          <select name="result">
+            <option value="">Any</option>
+            <option value="Pass">Pass</option>
+            <option value="Fail">Fail</option>
+          </select>
+        </label>
+        <label>
+          From
+          <input type="date" name="from" />
+        </label>
+        <label>
+          To
+          <input type="date" name="to" />
+        </label>
+        <div class="search-actions">
+          <button type="submit">Search</button>
+          <button type="reset" class="secondary">Clear</button>
+        </div>
+      </form>
+
+      <p id="status" class="status" aria-live="polite"></p>
+      <ul id="results" class="results"></ul>
+
+      <nav class="pager" aria-label="Pages">
+        <button type="button" id="prev" class="secondary">Previous</button>
+        <span id="page-info"></span>
+        <button type="button" id="next" class="secondary">Next</button>
+      </nav>
     </main>
 
     <footer class="site-footer">
       <p>Data from Analyze Boston. Built by Yanli Wang and Jiaying Guo.</p>
     </footer>
+
+    <script type="module" src="js/search.js"></script>
   </body>
 </html>

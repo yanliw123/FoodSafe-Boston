@@ -13,7 +13,20 @@ Web Development CS5610
 
 ## Project Objective
 
-The City of Boston posts every restaurant health inspection online, but the dataset has more than 900,000 rows and is hard for diners to use. FoodSafe Boston lets people search a restaurant and see its latest inspection result, its past inspections and how serious each violation was, with links to Google Maps and Yelp. Because the city only inspects a restaurant once or twice a year, the app also maps the food safety complaints residents sent to Boston 311 between inspections, and lets diners file their own complaints.
+The City of Boston posts every restaurant health inspection online, but the dataset has more than 900,000 rows and is hard for diners to use. FoodSafe Boston lets people search a restaurant and see its latest inspection result, its past inspections and how serious each violation was, with links to Google Maps and Yelp. Diners can also leave their own reviews of a restaurant. Because the city only inspects a restaurant once or twice a year, the app also maps the food safety complaints residents sent to Boston 311 between inspections, and lets diners file their own complaints.
+
+## Features
+
+### Inspections and reviews (Yanli Wang)
+
+- Search restaurants by name, street or zip code, and filter by zip code, latest result (Pass or Fail) and date range. Each restaurant shows up once, with its latest inspection.
+- Open a restaurant to see every inspection on record, each violation, how serious it was (★ to ★★★), whether it was corrected and the inspector's comments.
+- Post, edit and delete reviews with a 1 to 5 star rating. There is no login, so each browser keeps a random key and can only change the reviews it wrote.
+
+### 311 complaints (Jiaying Guo)
+
+- See food safety complaints residents reported to Boston 311 at a restaurant's address.
+- Browse complaints on a map and file new complaints.
 
 ## Screenshot
 
@@ -31,6 +44,26 @@ The City of Boston posts every restaurant health inspection online, but the data
 - Backend: Node.js + Express (ES modules)
 - Database: MongoDB with the native Node.js driver
 
+## Data
+
+| Collection    | Source                                                                                                             | Who can change it                 |
+| ------------- | ------------------------------------------------------------------------------------------------------------------ | --------------------------------- |
+| `inspections` | [Food Establishment Inspections](https://data.boston.gov/dataset/food-establishment-inspections), 2026 inspections | Read only, loaded by the import   |
+| `reviews`     | Written by users in the app                                                                                        | The browser that wrote the review |
+| `complaints`  | [311 Service Requests](https://data.boston.gov/dataset/311-service-requests) and users                             | Users                             |
+
+## API
+
+| Method | Path                                               | Description                                      |
+| ------ | -------------------------------------------------- | ------------------------------------------------ |
+| GET    | `/api/inspections?q=&zip=&result=&from=&to=&page=` | Search restaurants, one result per restaurant    |
+| GET    | `/api/inspections/restaurant/:licenseNo`           | All inspections for one restaurant, newest first |
+| GET    | `/api/reviews?license=`                            | Reviews for one restaurant                       |
+| POST   | `/api/reviews`                                     | Add a review                                     |
+| PUT    | `/api/reviews/:id`                                 | Edit your review                                 |
+| DELETE | `/api/reviews/:id`                                 | Delete your review                               |
+| GET    | `/api/complaints`                                  | List complaints                                  |
+
 ## Instructions to Build
 
 1. Install Node.js 20 or newer.
@@ -43,6 +76,7 @@ The City of Boston posts every restaurant health inspection online, but the data
    ```bash
    npm run import:inspections
    ```
+   This loads the 2026 inspections. Re-running it replaces the imported data and keeps reviews.
 5. Start the server:
    ```bash
    npm start
@@ -54,7 +88,7 @@ The City of Boston posts every restaurant health inspection online, but the data
 ```
 server.js        Express app entry point
 db/              MongoDB connection module
-routes/          API routes (inspections, complaints)
+routes/          API routes (inspections, reviews, complaints)
 scripts/         Data import scripts
 frontend/        Static HTML pages, CSS modules and client JS
 design/          Design document and mockups

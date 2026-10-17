@@ -65,12 +65,14 @@ body {
 
 input,
 select,
+textarea,
 button {
   font: inherit;
 }
 
 input,
-select {
+select,
+textarea {
   padding: 0.45rem 0.6rem;
   border: 1px solid var(--color-border);
   border-radius: 6px;
@@ -92,9 +94,45 @@ button.secondary {
   background: #fff;
 }
 
+button.danger {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+  background: #fff;
+}
+
 button:disabled {
   opacity: 0.4;
   cursor: default;
+}
+
+.status {
+  margin: 1rem 0 0.5rem;
+  color: var(--color-muted);
+}
+
+.result-card {
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.badge {
+  flex-shrink: 0;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-muted);
+}
+
+.badge-pass {
+  background: var(--color-primary);
+}
+
+.badge-fail {
+  background: var(--color-danger);
 }
 
 .site-footer {

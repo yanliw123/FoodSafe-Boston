@@ -69,7 +69,7 @@ async function main() {
   const db = await connectDB();
   const collection = db.collection("inspections");
 
-  // Re-running the import replaces city data but keeps records added in the app
+  // Re-running the import replaces the previously imported data
   const { deletedCount } = await collection.deleteMany({ source: "city" });
   console.log(`Removed ${deletedCount} old imported inspections`);
 

@@ -1,5 +1,5 @@
 .intro {
-  margin-top: -0.5rem;
+  margin-top: 0;
   color: var(--color-muted);
 }
 
@@ -27,24 +27,12 @@
   align-items: flex-end;
 }
 
-.status {
-  margin: 1rem 0 0.5rem;
-  color: var(--color-muted);
-}
-
 .results {
   display: grid;
   gap: 0.75rem;
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-.result-card {
-  padding: 1rem;
-  background: #fff;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
 }
 
 .result-header {
@@ -71,24 +59,6 @@
   margin: 0.25rem 0 0;
   color: var(--color-muted);
   font-size: 0.95rem;
-}
-
-.badge {
-  flex-shrink: 0;
-  padding: 0.15rem 0.6rem;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #fff;
-  background: var(--color-muted);
-}
-
-.badge-pass {
-  background: var(--color-primary);
-}
-
-.badge-fail {
-  background: var(--color-danger);
 }
 
 .pager {

@@ -61,4 +61,19 @@ router.get("/", async (req, res) => {
   res.json({ items, total, page, pageSize: PAGE_SIZE });
 });
 
+// All inspections for one restaurant, newest first
+// GET /api/inspections/restaurant/123456
+router.get("/restaurant/:licenseNo", async (req, res) => {
+  const inspections = await getDB()
+    .collection("inspections")
+    .find({ licenseNo: req.params.licenseNo })
+    .sort({ date: -1 })
+    .toArray();
+
+  if (inspections.length === 0) {
+    return res.status(404).json({ error: "Restaurant not found" });
+  }
+  res.json(inspections);
+});
+
 export default router;
