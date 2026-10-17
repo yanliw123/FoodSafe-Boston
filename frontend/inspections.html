@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Search Inspections | FoodSafe Boston</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/inspections.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1><a href="index.html">FoodSafe Boston</a></h1>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="inspections.html" aria-current="page">Inspections</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h2>Search restaurants</h2>
+      <p class="intro">
+        Find a restaurant to see the result of its latest health inspection.
+        Filters apply to the latest inspection in the date range.
+      </p>
+
+      <form id="search-form" class="search-form">
+        <label>
+          Name or street
+          <input type="search" name="q" placeholder="e.g. pizza, Tremont" />
+        </label>
+        <label>
+          Zip code
+          <input
+            type="text"
+            name="zip"
+            inputmode="numeric"
+            pattern="[0-9]{5}"
+            maxlength="5"
+            placeholder="02115"
+          />
+        </label>
+        <label>
+          Result
+          <select name="result">
+            <option value="">Any</option>
+            <option value="Pass">Pass</option>
+            <option value="Fail">Fail</option>
+          </select>
+        </label>
+        <label>
+          From
+          <input type="date" name="from" />
+        </label>
+        <label>
+          To
+          <input type="date" name="to" />
+        </label>
+        <div class="search-actions">
+          <button type="submit">Search</button>
+          <button type="reset" class="secondary">Clear</button>
+        </div>
+      </form>
+
+      <p id="status" class="status" aria-live="polite"></p>
+      <ul id="results" class="results"></ul>
+
+      <nav class="pager" aria-label="Pages">
+        <button type="button" id="prev" class="secondary">Previous</button>
+        <span id="page-info"></span>
+        <button type="button" id="next" class="secondary">Next</button>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>Data from Analyze Boston. Built by Yanli Wang and Jiaying Guo.</p>
+    </footer>
+
+    <script type="module" src="js/inspections.js"></script>
+  </body>
+</html>
