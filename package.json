@@ -8,6 +8,7 @@
     "start": "node server.js",
     "dev": "node --watch server.js",
     "import:inspections": "node scripts/importInspections.js",
+    "seed:reviews": "node scripts/seedReviews.js",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check ."

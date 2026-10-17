@@ -77,11 +77,16 @@ The City of Boston posts every restaurant health inspection online, but the data
    npm run import:inspections
    ```
    This loads the 2026 inspections. Re-running it replaces the imported data and keeps reviews.
-5. Start the server:
+5. (Optional) Add sample reviews to 100 random restaurants:
+   ```bash
+   npm run seed:reviews
+   ```
+   Re-running it replaces the old sample reviews and keeps reviews written in the app.
+6. Start the server:
    ```bash
    npm start
    ```
-6. Open http://localhost:3000.
+7. Open http://localhost:3000.
 
 ## Project Structure
 
