@@ -10,8 +10,8 @@ const BATCH_SIZE = 1000;
 // The city uses codes like "HE_Pass" and "HE_FailExt"
 function normalizeResult(raw) {
   const result = (raw || "").replace(/^HE_/, "");
-  if (result.startsWith("Pass")) return "Pass";
-  if (result.startsWith("Fail")) return "Fail";
+  if (/^pass/i.test(result)) return "Pass";
+  if (/^fail/i.test(result)) return "Fail";
   return result || "Unknown";
 }
 
@@ -37,8 +37,8 @@ async function readInspections() {
       inspections.set(key, {
         restaurantName: row.businessname?.trim(),
         licenseNo: row.licenseno,
-        address: row.address?.trim(),
-        city: row.city?.trim(),
+        address: row.address?.replace(/\s+/g, " ").trim(),
+        city: row.city?.replace(/\/$/, "").trim(),
         zip: row.zip?.trim().padStart(5, "0"),
         result: normalizeResult(row.result),
         date: toDate(row.resultdttm),
@@ -50,9 +50,9 @@ async function readInspections() {
     if (row.violation) {
       inspections.get(key).violations.push({
         code: row.violation,
-        level: (row.viollevel || "").length,
+        level: (row.viol_level || "").length,
         description: row.violdesc,
-        status: row.violstatus,
+        status: row.viol_status,
         comments: row.comments,
       });
     }
