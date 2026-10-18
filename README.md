@@ -9,7 +9,7 @@ Check if a restaurant is clean before you eat there.
 
 ## Class
 
-Web Development CS5610
+[CS5610 Web Development, Fall 2026](https://johnguerra.co/classes/webDevelopment_online_fall_2026/), Northeastern University
 
 ## Project Objective
 
@@ -19,7 +19,7 @@ The City of Boston posts every restaurant health inspection online, but the data
 
 ### Inspections and reviews (Yanli Wang)
 
-- Search restaurants by name, street or zip code, and filter by zip code, latest result (Pass or Fail) and date range. Each restaurant shows up once, with its latest inspection.
+- Search restaurants by name, street or zip code, filter by zip code, latest result (Pass or Fail) and date range, and sort by latest inspection date (default) or name. Each restaurant shows up once, with its latest inspection.
 - Open a restaurant to see every inspection on record, each violation, how serious it was (★ to ★★★), whether it was corrected and the inspector's comments.
 - Post, edit and delete reviews with a 1 to 5 star rating. There is no login, so each browser keeps a random key and can only change the reviews it wrote.
 
@@ -54,15 +54,15 @@ The City of Boston posts every restaurant health inspection online, but the data
 
 ## API
 
-| Method | Path                                               | Description                                      |
-| ------ | -------------------------------------------------- | ------------------------------------------------ |
-| GET    | `/api/inspections?q=&zip=&result=&from=&to=&page=` | Search restaurants, one result per restaurant    |
-| GET    | `/api/inspections/restaurant/:licenseNo`           | All inspections for one restaurant, newest first |
-| GET    | `/api/reviews?license=`                            | Reviews for one restaurant                       |
-| POST   | `/api/reviews`                                     | Add a review                                     |
-| PUT    | `/api/reviews/:id`                                 | Edit your review                                 |
-| DELETE | `/api/reviews/:id`                                 | Delete your review                               |
-| GET    | `/api/complaints`                                  | List complaints                                  |
+| Method | Path                                                     | Description                                                                                        |
+| ------ | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| GET    | `/api/inspections?q=&zip=&result=&from=&to=&sort=&page=` | Search restaurants, one result per restaurant, newest inspection first, or A to Z with `sort=name` |
+| GET    | `/api/inspections/restaurant/:licenseNo`                 | All inspections for one restaurant, newest first                                                   |
+| GET    | `/api/reviews?license=`                                  | Reviews for one restaurant                                                                         |
+| POST   | `/api/reviews`                                           | Add a review                                                                                       |
+| PUT    | `/api/reviews/:id`                                       | Edit your review                                                                                   |
+| DELETE | `/api/reviews/:id`                                       | Delete your review                                                                                 |
+| GET    | `/api/complaints`                                        | List complaints                                                                                    |
 
 ## Instructions to Build
 

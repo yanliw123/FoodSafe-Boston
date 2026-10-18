@@ -9,9 +9,10 @@ function escapeRegex(text) {
 }
 
 // Returns one result per restaurant: its latest inspection plus how many it had.
-// GET /api/inspections?q=pizza&zip=02115&result=Fail&from=2026-01-01&to=2026-06-30&page=1
+// GET /api/inspections?q=pizza&zip=02115&result=Fail&from=2026-01-01&to=2026-06-30&sort=name&page=1
+// Lists the most recently inspected restaurants first, or A to Z with sort=name
 router.get("/", async (req, res) => {
-  const { q, zip, result, from, to } = req.query;
+  const { q, zip, result, from, to, sort } = req.query;
   const page = Math.max(1, parseInt(req.query.page, 10) || 1);
   const match = {};
 
@@ -42,7 +43,12 @@ router.get("/", async (req, res) => {
       { $replaceRoot: { newRoot: "$latest" } },
       // Filter on the latest result, so "Pass" means the restaurant passes now
       ...(result ? [{ $match: { result } }] : []),
-      { $sort: { restaurantName: 1 } },
+      {
+        $sort:
+          sort === "name"
+            ? { restaurantName: 1 }
+            : { date: -1, restaurantName: 1 },
+      },
       {
         $facet: {
           items: [{ $skip: (page - 1) * PAGE_SIZE }, { $limit: PAGE_SIZE }],

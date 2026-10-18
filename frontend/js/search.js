@@ -88,6 +88,12 @@ form.addEventListener("submit", (event) => {
   search();
 });
 
+// Re-sort right away, without pressing Search
+form.elements.sort.addEventListener("change", () => {
+  page = 1;
+  search();
+});
+
 form.addEventListener("reset", () => {
   page = 1;
   setTimeout(search);
