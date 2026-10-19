@@ -6,12 +6,14 @@
     <title>Restaurant | FoodSafe Boston</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/restaurant.css" />
+    <link rel="stylesheet" href="css/complaint-card.css" />
   </head>
   <body>
     <header class="site-header">
       <h1><a href="index.html">FoodSafe Boston</a></h1>
       <nav class="site-nav">
         <a href="index.html">Search</a>
+        <a href="complaints.html">311 Complaints</a>
         <a href="favorites.html">My favorites</a>
       </nav>
     </header>
@@ -80,8 +82,12 @@
           aria-labelledby="complaints-tab"
           hidden
         >
-          <p class="panel-note">
-            311 complaints reported at this address will show here.
+          <p id="complaints-note" class="panel-note">Loading complaints...</p>
+          <ul id="complaints-list" class="history"></ul>
+          <p>
+            <a id="file-complaint-link" class="back-link">
+              File a complaint about this restaurant
+            </a>
           </p>
         </div>
 

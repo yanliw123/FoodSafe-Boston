@@ -1,6 +1,7 @@
 import { formatDate, request } from "./api.js";
 import { createBadge, createTypeLabel, fillLegend } from "./results.js";
 import { initReviews } from "./reviews.js";
+import { initRestaurantComplaints } from "./restaurantComplaints.js";
 
 const statusEl = document.getElementById("status");
 const restaurantEl = document.getElementById("restaurant");
@@ -165,6 +166,7 @@ async function loadRestaurant() {
     showRestaurant(inspections);
     initReviews(license);
     initSaveButton(license);
+    initRestaurantComplaints(inspections[0]);
   } catch (err) {
     statusEl.textContent = `Could not load restaurant: ${err.message}`;
   }
