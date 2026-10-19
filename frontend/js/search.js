@@ -1,3 +1,5 @@
+import { createBadge, fillLegend } from "./results.js";
+
 const form = document.getElementById("search-form");
 const statusEl = document.getElementById("status");
 const resultsEl = document.getElementById("results");
@@ -26,9 +28,7 @@ function createResultItem(inspection) {
   name.href = `restaurant.html?license=${encodeURIComponent(inspection.licenseNo)}`;
   name.textContent = inspection.restaurantName;
 
-  const badge = document.createElement("span");
-  badge.className = `badge badge-${inspection.result.toLowerCase()}`;
-  badge.textContent = inspection.result;
+  const badge = createBadge(inspection.result);
 
   header.append(name, badge);
 
@@ -109,4 +109,5 @@ nextBtn.addEventListener("click", () => {
   search();
 });
 
+fillLegend(document.getElementById("result-legend"));
 search();

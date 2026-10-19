@@ -20,7 +20,7 @@ The City of Boston posts every restaurant health inspection online, but the data
 ### Inspections and reviews (Yanli Wang)
 
 - Search restaurants by name, street or zip code, filter by zip code, latest result (Pass or Fail) and date range, and sort by latest inspection date (default) or name. Each restaurant shows up once, with its latest inspection.
-- Open a restaurant to see every inspection on record, each violation, how serious it was (★ to ★★★), whether it was corrected and the inspector's comments.
+- Open a restaurant to see every inspection on record, each violation, how serious it was (★ to ★★★), whether it was resolved and the inspector's comments.
 - Post, edit and delete reviews with a 1 to 5 star rating. There is no login, so each browser keeps a random key and can only change the reviews it wrote.
 
 ### 311 complaints (Jiaying Guo)

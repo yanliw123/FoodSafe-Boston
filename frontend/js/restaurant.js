@@ -1,3 +1,4 @@
+import { createBadge, fillLegend } from "./results.js";
 import { initReviews } from "./reviews.js";
 
 const statusEl = document.getElementById("status");
@@ -29,8 +30,8 @@ function createViolationItem(violation) {
 
   const status = document.createElement("p");
   status.className = "violation-status";
-  if (violation.status === "Pass") status.textContent = "Corrected";
-  if (violation.status === "Fail") status.textContent = "Not corrected";
+  if (violation.status === "Pass") status.textContent = "Resolved";
+  if (violation.status === "Fail") status.textContent = "Not resolved";
 
   li.append(title, status);
 
@@ -55,9 +56,7 @@ function createInspectionItem(inspection) {
   date.className = "inspection-date";
   date.textContent = formatDate(inspection.date);
 
-  const badge = document.createElement("span");
-  badge.className = `badge badge-${inspection.result.toLowerCase()}`;
-  badge.textContent = inspection.result;
+  const badge = createBadge(inspection.result);
 
   const count = inspection.violations.length;
   const countEl = document.createElement("span");
@@ -142,4 +141,5 @@ for (const tab of document.querySelectorAll('[role="tab"]')) {
   tab.addEventListener("click", () => showTab(tab));
 }
 
+fillLegend(document.getElementById("result-legend"));
 loadRestaurant();
