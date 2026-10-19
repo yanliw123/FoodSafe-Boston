@@ -7,7 +7,7 @@ const router = Router();
 // There is no login, so each browser keeps a random token and sends it with
 // every request. Only the browser that wrote a review can edit or delete it.
 function getToken(req) {
-  return req.get("X-Review-Token") || "";
+  return req.get("X-Browser-Token") || "";
 }
 
 // Returns the cleaned fields, or an error message

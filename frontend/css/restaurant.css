@@ -17,7 +17,18 @@
 
 .restaurant-links {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 1rem;
+}
+
+.save-button {
+  padding: 0.25rem 0.75rem;
+}
+
+.save-button[aria-pressed="true"] {
+  color: #fff;
+  background: var(--color-primary);
 }
 
 .restaurant-links a {

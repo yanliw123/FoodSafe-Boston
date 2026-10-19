@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My favorites | FoodSafe Boston</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/favorites.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1><a href="index.html">FoodSafe Boston</a></h1>
+      <p>Keep an eye on the places you eat at most.</p>
+      <nav class="site-nav">
+        <a href="index.html">Search</a>
+        <a href="favorites.html" aria-current="page">My favorites</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <p class="intro">
+        Restaurants you saved in this browser, with their latest inspection.
+        Notes are private and only you can see them.
+      </p>
+
+      <p id="status" class="status" aria-live="polite">Loading...</p>
+      <ul id="favorites" class="favorites"></ul>
+    </main>
+
+    <footer class="site-footer">
+      <p>Data from Analyze Boston. Built by Yanli Wang and Jiaying Guo.</p>
+    </footer>
+
+    <script type="module" src="js/favorites.js"></script>
+  </body>
+</html>

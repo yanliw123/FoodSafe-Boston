@@ -1,15 +1,51 @@
+import { formatDate, request } from "./api.js";
 import { createBadge, createTypeLabel, fillLegend } from "./results.js";
 import { initReviews } from "./reviews.js";
 
 const statusEl = document.getElementById("status");
 const restaurantEl = document.getElementById("restaurant");
 const historyEl = document.getElementById("history");
+const saveBtn = document.getElementById("save-button");
 
-function formatDate(value) {
-  return new Date(value).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
+let favoriteId = null;
+
+function showSaved(saved) {
+  saveBtn.textContent = saved ? "★ Saved" : "☆ Save";
+  saveBtn.setAttribute("aria-pressed", saved);
+  saveBtn.title = saved ? "Remove from my favorites" : "Add to my favorites";
+}
+
+async function initSaveButton(license) {
+  try {
+    const [favorite] = await request(
+      `/api/favorites?license=${encodeURIComponent(license)}`,
+    );
+    favoriteId = favorite?._id ?? null;
+    showSaved(Boolean(favoriteId));
+    saveBtn.hidden = false;
+  } catch {
+    // Saving is optional, so the page still works without the button
+  }
+
+  saveBtn.addEventListener("click", async () => {
+    saveBtn.disabled = true;
+    try {
+      if (favoriteId) {
+        await request(`/api/favorites/${favoriteId}`, { method: "DELETE" });
+        favoriteId = null;
+      } else {
+        const favorite = await request("/api/favorites", {
+          method: "POST",
+          body: JSON.stringify({ licenseNo: license }),
+        });
+        favoriteId = favorite._id;
+      }
+      showSaved(Boolean(favoriteId));
+    } catch (err) {
+      alert(`Could not update favorites: ${err.message}`);
+    } finally {
+      saveBtn.disabled = false;
+    }
   });
 }
 
@@ -128,6 +164,7 @@ async function loadRestaurant() {
     statusEl.hidden = true;
     showRestaurant(inspections);
     initReviews(license);
+    initSaveButton(license);
   } catch (err) {
     statusEl.textContent = `Could not load restaurant: ${err.message}`;
   }

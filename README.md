@@ -13,16 +13,17 @@ Check if a restaurant is clean before you eat there.
 
 ## Project Objective
 
-The City of Boston posts every restaurant health inspection online, but the dataset has more than 900,000 rows and is hard for diners to use. FoodSafe Boston lets people search a restaurant and see its latest inspection result, its past inspections and how serious each violation was, with links to Google Maps and Yelp. Diners can also leave their own reviews of a restaurant. Because the city only inspects a restaurant once or twice a year, the app also maps the food safety complaints residents sent to Boston 311 between inspections, and lets diners file their own complaints.
+The City of Boston posts every restaurant health inspection online, but the dataset has more than 900,000 rows and is hard for diners to use. FoodSafe Boston lets people search a restaurant and see its latest inspection result, its past inspections and how serious each violation was, with links to Google Maps and Yelp. Diners can also leave their own reviews of a restaurant, and save the places they eat at most to see their latest results on one page. Because the city only inspects a restaurant once or twice a year, the app also maps the food safety complaints residents sent to Boston 311 between inspections, and lets diners file their own complaints.
 
 ## Features
 
-### Inspections and reviews (Yanli Wang)
+### Inspections, reviews and favorites (Yanli Wang)
 
 - Search restaurants by name, street or zip code, filter by zip code, latest result (Pass or Fail) and date range, and sort by latest inspection date (default) or name. Each restaurant shows up once, with its latest inspection.
 - Open a restaurant to see every inspection on record, each violation, how serious it was (★ to ★★★), whether it was resolved and the inspector's comments.
 - Icons show each restaurant's type (sit-down, takeout, retail or food truck), and a legend explains every result label and icon.
 - Post, edit and delete reviews with a 1 to 5 star rating. There is no login, so each browser keeps a random key and can only change the reviews it wrote.
+- Save restaurants to My favorites, add a private note to each, and see every saved restaurant's latest inspection result on one page. Favorites belong to the browser that saved them.
 
 ### 311 complaints (Jiaying Guo)
 
@@ -51,6 +52,7 @@ The City of Boston posts every restaurant health inspection online, but the data
 | ------------- | ------------------------------------------------------------------------------------------------------------------ | --------------------------------- |
 | `inspections` | [Food Establishment Inspections](https://data.boston.gov/dataset/food-establishment-inspections), 2026 inspections | Read only, loaded by the import   |
 | `reviews`     | Written by users in the app                                                                                        | The browser that wrote the review |
+| `favorites`   | Saved by users in the app, private to each browser                                                                 | The browser that saved it         |
 | `complaints`  | [311 Service Requests](https://data.boston.gov/dataset/311-service-requests) and users                             | Users                             |
 
 ## API
@@ -63,6 +65,10 @@ The City of Boston posts every restaurant health inspection online, but the data
 | POST   | `/api/reviews`                                           | Add a review                                                                                       |
 | PUT    | `/api/reviews/:id`                                       | Edit your review                                                                                   |
 | DELETE | `/api/reviews/:id`                                       | Delete your review                                                                                 |
+| GET    | `/api/favorites?license=`                                | Your saved restaurants with their latest inspection, or check one restaurant with `license`        |
+| POST   | `/api/favorites`                                         | Save a restaurant                                                                                  |
+| PUT    | `/api/favorites/:id`                                     | Edit the note on a saved restaurant                                                                |
+| DELETE | `/api/favorites/:id`                                     | Remove a saved restaurant                                                                          |
 | GET    | `/api/complaints`                                        | List complaints                                                                                    |
 
 ## Instructions to Build
@@ -77,7 +83,7 @@ The City of Boston posts every restaurant health inspection online, but the data
    ```bash
    npm run import:inspections
    ```
-   This loads the 2026 inspections. Re-running it replaces the imported data and keeps reviews.
+   This loads the 2026 inspections. Re-running it replaces the imported data and keeps reviews and favorites.
 5. (Optional) Add sample reviews to 100 random restaurants:
    ```bash
    npm run seed:reviews
@@ -94,7 +100,7 @@ The City of Boston posts every restaurant health inspection online, but the data
 ```
 server.js        Express app entry point
 db/              MongoDB connection module
-routes/          API routes (inspections, reviews, complaints)
+routes/          API routes (inspections, reviews, favorites, complaints)
 scripts/         Data import scripts
 frontend/        Static HTML pages, CSS modules and client JS
 design/          Design document and mockups

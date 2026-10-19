@@ -1,0 +1,81 @@
+.intro {
+  margin-top: 0;
+  color: var(--color-muted);
+}
+
+.status a {
+  color: var(--color-primary);
+}
+
+.favorites {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.result-header a {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.result-header a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.result-address,
+.result-meta {
+  margin: 0.25rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.favorite-body {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.favorite-note {
+  margin: 0 0 0.75rem;
+  white-space: pre-line;
+}
+
+.favorite-note.empty {
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+.favorite-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.note-form {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.note-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.form-message {
+  margin: 0;
+  color: var(--color-danger);
+}

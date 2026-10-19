@@ -1,3 +1,5 @@
+import { formatDate, request } from "./api.js";
+
 const form = document.getElementById("review-form");
 const formTitle = document.getElementById("review-form-title");
 const submitBtn = document.getElementById("review-submit");
@@ -6,43 +8,8 @@ const messageEl = document.getElementById("review-message");
 const statusEl = document.getElementById("reviews-status");
 const listEl = document.getElementById("reviews");
 
-const TOKEN_KEY = "foodsafe-review-token";
-
 let licenseNo;
 let editingId = null;
-
-// There is no login, so this browser's random token marks which reviews it wrote
-function getToken() {
-  let token = localStorage.getItem(TOKEN_KEY);
-  if (!token) {
-    token = crypto.randomUUID();
-    localStorage.setItem(TOKEN_KEY, token);
-  }
-  return token;
-}
-
-async function request(url, options = {}) {
-  const res = await fetch(url, {
-    ...options,
-    headers: {
-      "Content-Type": "application/json",
-      "X-Review-Token": getToken(),
-    },
-  });
-  if (res.status === 204) return null;
-
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error || `Server error ${res.status}`);
-  return data;
-}
-
-function formatDate(value) {
-  return new Date(value).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-}
 
 function createReviewItem(review) {
   const li = document.createElement("li");
