@@ -1,4 +1,4 @@
-import { createBadge, createTypeIcon, fillLegend } from "./results.js";
+import { createBadge, createTypeLabel, fillLegend } from "./results.js";
 
 const form = document.getElementById("search-form");
 const statusEl = document.getElementById("status");
@@ -30,13 +30,7 @@ function createResultItem(inspection) {
 
   const badge = createBadge(inspection.result);
 
-  const title = document.createElement("span");
-  title.className = "result-title";
-  const icon = createTypeIcon(inspection.type);
-  if (icon) title.append(icon);
-  title.append(name);
-
-  header.append(title, badge);
+  header.append(name, badge);
 
   const address = document.createElement("p");
   address.className = "result-address";
@@ -54,7 +48,17 @@ function createResultItem(inspection) {
   const n = inspection.inspectionCount;
   history.textContent = `${n} inspection${n === 1 ? "" : "s"} on record`;
 
-  li.append(header, address, meta, history);
+  li.append(header, address);
+
+  const typeLabel = createTypeLabel(inspection.type);
+  if (typeLabel) {
+    const type = document.createElement("p");
+    type.className = "result-meta";
+    type.append(typeLabel);
+    li.append(type);
+  }
+
+  li.append(meta, history);
   return li;
 }
 

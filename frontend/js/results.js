@@ -16,7 +16,8 @@ const RESULTS = {
   Misc: "Another kind of administrative record.",
 };
 
-// The four license types in the city data, each drawn as a 24x24 line icon
+// The four license types in the city data, each drawn as a 24x24 line icon.
+// name is a shorter label to show instead of the city's wording.
 const TYPES = {
   "Eating & Drinking": {
     meaning: "Sit-down restaurant.",
@@ -36,7 +37,8 @@ const TYPES = {
       "M8 10l3-6M16 10l-3-6M9 14v3M12 14v3M15 14v3",
     ],
   },
-  "Mobile Food": {
+  "Mobile Food Walk On": {
+    name: "Mobile Food",
     meaning: "Food truck or cart.",
     paths: [
       "M2 6h11v10H2z",
@@ -56,6 +58,10 @@ export function createBadge(result) {
   return badge;
 }
 
+function displayName(type) {
+  return TYPES[type].name ?? type;
+}
+
 // Returns an icon for the restaurant type, or null for an unknown type
 export function createTypeIcon(type) {
   if (!TYPES[type]) return null;
@@ -73,9 +79,17 @@ export function createTypeIcon(type) {
 
   const icon = document.createElement("span");
   icon.className = "type";
-  icon.title = type;
+  icon.title = displayName(type);
   icon.append(svg);
   return icon;
+}
+
+// Icon, type name and what it means, or null for an unknown type
+export function createTypeLabel(type) {
+  const label = createTypeIcon(type);
+  if (!label) return null;
+  label.append(`${displayName(type)} · ${TYPES[type].meaning}`);
+  return label;
 }
 
 function createList(entries, createTerm) {
@@ -102,7 +116,7 @@ export function fillLegend(legend) {
     Object.entries(TYPES).map(([type, { meaning }]) => [type, meaning]),
     (type) => {
       const term = createTypeIcon(type);
-      term.append(type);
+      term.append(displayName(type));
       return term;
     },
   );

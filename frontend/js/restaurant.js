@@ -1,4 +1,4 @@
-import { createBadge, createTypeIcon, fillLegend } from "./results.js";
+import { createBadge, createTypeLabel, fillLegend } from "./results.js";
 import { initReviews } from "./reviews.js";
 
 const statusEl = document.getElementById("status");
@@ -91,12 +91,9 @@ function showRestaurant(inspections) {
   document.getElementById("restaurant-address").textContent = location;
 
   const typeEl = document.getElementById("restaurant-type");
-  const icon = createTypeIcon(type);
-  if (icon) {
-    icon.append(type);
-    typeEl.replaceChildren(icon);
-  }
-  typeEl.hidden = !icon;
+  const typeLabel = createTypeLabel(type);
+  if (typeLabel) typeEl.replaceChildren(typeLabel);
+  typeEl.hidden = !typeLabel;
   document.getElementById("maps-link").href =
     `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${restaurantName}, ${location}`)}`;
   document.getElementById("yelp-link").href =
