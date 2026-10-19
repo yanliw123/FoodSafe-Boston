@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>311 Complaints | FoodSafe Boston</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/search.css" />
+    <link rel="stylesheet" href="css/complaint-card.css" />
+    <link rel="stylesheet" href="css/complaints.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1><a href="index.html">FoodSafe Boston</a></h1>
+      <p>See what diners reported between inspections.</p>
+      <nav class="site-nav">
+        <a href="index.html">Search</a>
+        <a href="complaints.html" aria-current="page">311 Complaints</a>
+        <a href="favorites.html">My favorites</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <p class="intro">
+        Food safety complaints residents sent to Boston 311 since 2024, plus the
+        ones diners filed here. Search a street, neighborhood or business, then
+        click a dot on the map or a complaint in the list to see the details and
+        the city's response.
+      </p>
+
+      <form id="filter-form" class="search-form">
+        <label>
+          Street, neighborhood or business
+          <input type="search" name="q" placeholder="e.g. Tremont St, Subway" />
+        </label>
+        <label>
+          Neighborhood
+          <select name="neighborhood">
+            <option value="">Any</option>
+          </select>
+        </label>
+        <label>
+          Type
+          <select name="type">
+            <option value="">Any</option>
+          </select>
+        </label>
+        <label>
+          Status
+          <select name="status">
+            <option value="">Any</option>
+            <option value="Open">Open</option>
+            <option value="Closed">Closed</option>
+          </select>
+        </label>
+        <label>
+          From
+          <input type="date" name="from" />
+        </label>
+        <label>
+          To
+          <input type="date" name="to" />
+        </label>
+        <div class="search-actions">
+          <button type="submit">Search</button>
+          <button type="reset" class="secondary">Clear</button>
+        </div>
+      </form>
+
+      <section class="overview" aria-label="Complaints by type and on the map">
+        <ul id="type-counts" class="type-counts"></ul>
+        <p class="map-note">
+          Solid dots are open complaints, faded ones are closed.
+        </p>
+        <div id="complaint-map" class="complaint-map"></div>
+      </section>
+
+      <p id="status" class="status" aria-live="polite"></p>
+      <ul id="complaints" class="complaint-list"></ul>
+
+      <nav class="pager" aria-label="Pages">
+        <button type="button" id="prev" class="secondary">Previous</button>
+        <span id="page-info"></span>
+        <button type="button" id="next" class="secondary">Next</button>
+      </nav>
+
+      <form id="complaint-form" class="complaint-form">
+        <h2 id="form-title">File a complaint</h2>
+        <p class="form-note">
+          Saw a hygiene problem? Warn other diners. Only this browser can edit
+          or delete the complaints it filed.
+        </p>
+        <div class="form-fields">
+          <label>
+            Restaurant name
+            <input type="text" name="restaurantName" maxlength="100" required />
+          </label>
+          <label>
+            Address
+            <input
+              type="text"
+              name="address"
+              maxlength="120"
+              placeholder="e.g. 48 Winter St"
+              required
+            />
+          </label>
+          <label>
+            Zip code
+            <input
+              type="text"
+              name="zip"
+              inputmode="numeric"
+              pattern="[0-9]{5}"
+              maxlength="5"
+              placeholder="02111"
+            />
+          </label>
+          <label>
+            Neighborhood
+            <input
+              type="text"
+              name="neighborhood"
+              list="neighborhood-list"
+              maxlength="60"
+              required
+            />
+          </label>
+          <label>
+            Type
+            <select name="type" required></select>
+          </label>
+          <label>
+            Date
+            <input type="date" name="date" required />
+          </label>
+        </div>
+        <datalist id="neighborhood-list"></datalist>
+        <label>
+          What happened?
+          <textarea
+            name="description"
+            rows="4"
+            maxlength="1000"
+            required
+            placeholder="What did you see, and where in the restaurant?"
+          ></textarea>
+        </label>
+        <fieldset class="location-field">
+          <legend>Location</legend>
+          <p id="picked-location" class="form-note"></p>
+          <div id="picker-map" class="picker-map"></div>
+        </fieldset>
+        <div class="form-actions">
+          <button type="submit" id="complaint-submit">File complaint</button>
+          <button type="button" id="complaint-cancel" class="secondary" hidden>
+            Cancel
+          </button>
+        </div>
+        <p id="form-message" class="form-message" aria-live="polite"></p>
+      </form>
+    </main>
+
+    <dialog
+      id="complaint-dialog"
+      class="complaint-dialog"
+      aria-labelledby="dialog-title"
+    >
+      <h2 id="dialog-title"></h2>
+      <div id="dialog-body"></div>
+      <div id="dialog-actions" class="dialog-actions"></div>
+      <button type="button" id="dialog-close" class="secondary">Close</button>
+    </dialog>
+
+    <footer class="site-footer">
+      <p>Data from Analyze Boston. Built by Yanli Wang and Jiaying Guo.</p>
+    </footer>
+
+    <script type="module" src="js/complaints.js"></script>
+  </body>
+</html>

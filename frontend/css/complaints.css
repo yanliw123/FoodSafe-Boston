@@ -1,0 +1,140 @@
+.overview {
+  margin: 1.5rem 0;
+}
+
+.type-counts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.type-count {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.map-note,
+.form-note,
+.form-message,
+.complaint-meta {
+  color: var(--color-muted);
+}
+
+.map-note {
+  margin: 0.75rem 0 0.5rem;
+  font-size: 0.9rem;
+}
+
+.complaint-map {
+  height: 420px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.complaint-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.complaint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.complaint-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.complaint-meta {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+}
+
+.complaint-actions,
+.form-actions,
+.dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.complaint-form {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.complaint-form h2,
+.form-note,
+.form-message {
+  margin: 0;
+}
+
+.complaint-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.form-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.location-field {
+  margin: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.location-field legend {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.picker-map {
+  height: 280px;
+  margin-top: 0.5rem;
+  border-radius: 6px;
+}
+
+.complaint-dialog {
+  width: min(560px, calc(100% - 2rem));
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.complaint-dialog h2 {
+  margin-top: 0;
+}
+
+.complaint-dialog::backdrop {
+  background: rgb(0 0 0 / 40%);
+}
+
+#dialog-close {
+  margin-top: 1rem;
+}

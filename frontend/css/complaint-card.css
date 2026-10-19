@@ -1,0 +1,67 @@
+.complaint-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.type-dot {
+  flex-shrink: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+}
+
+.badge-open {
+  background: var(--color-warning);
+}
+
+.badge-closed {
+  background: var(--color-primary);
+}
+
+.complaint-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.complaint-date {
+  min-width: 8rem;
+  font-weight: 600;
+}
+
+.complaint-details {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4rem 1rem;
+  margin: 1rem 0 0;
+}
+
+.complaint-details dt {
+  color: var(--color-muted);
+}
+
+.complaint-details dd {
+  margin: 0;
+  white-space: pre-line;
+}
+
+.complaint-note {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.complaint-businesses {
+  margin: 0.25rem 0 0;
+  font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .complaint-details {
+    grid-template-columns: 1fr;
+  }
+}
