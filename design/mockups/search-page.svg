@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000" font-family="Arial, Helvetica, sans-serif">
+  <style>
+    .box { fill: #fff; stroke: #555; stroke-width: 1.5; }
+    .field { fill: #fff; stroke: #888; stroke-width: 1.2; }
+    .t { fill: #222; }
+    .muted { fill: #777; }
+    .s { font-size: 13px; }
+    .m { font-size: 15px; }
+    .b { font-weight: bold; }
+    .btn { fill: #fff; stroke: #555; stroke-width: 1.5; }
+    .btnp { fill: #555; stroke: #555; }
+  </style>
+
+  <rect x="0" y="0" width="1000" height="1000" fill="#fafafa"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1000" height="110" fill="#d9d9d9"/>
+  <text x="500" y="45" text-anchor="middle" class="t b" font-size="26">FoodSafe Boston</text>
+  <text x="500" y="70" text-anchor="middle" class="t m">Check if a restaurant is clean before you eat there.</text>
+  <text x="385" y="96" class="t m b">Search</text>
+  <line x1="385" y1="100" x2="436" y2="100" stroke="#222" stroke-width="1.5"/>
+  <text x="455" y="96" class="t m">311 Complaints</text>
+  <text x="590" y="96" class="t m">My favorites</text>
+
+  <text x="40" y="140" class="muted m">Search by name, street or zip code, then open a restaurant to see its inspection history and</text>
+  <text x="40" y="160" class="muted m">311 complaints. Filters apply to the latest inspection in the date range.</text>
+
+  <!-- Search form -->
+  <rect x="40" y="175" width="920" height="130" rx="8" class="box"/>
+  <text x="60" y="200" class="muted s">Name or street</text>
+  <rect x="60" y="207" width="280" height="30" rx="5" class="field"/>
+  <text x="70" y="227" class="muted s">e.g. pizza, Tremont</text>
+  <text x="360" y="200" class="muted s">Zip code</text>
+  <rect x="360" y="207" width="180" height="30" rx="5" class="field"/>
+  <text x="370" y="227" class="muted s">02115</text>
+  <text x="560" y="200" class="muted s">Result</text>
+  <rect x="560" y="207" width="180" height="30" rx="5" class="field"/>
+  <text x="570" y="227" class="t s">Any</text>
+  <text x="725" y="227" class="t s">▾</text>
+  <text x="760" y="200" class="muted s">Sort by</text>
+  <rect x="760" y="207" width="180" height="30" rx="5" class="field"/>
+  <text x="770" y="227" class="t s">Latest inspection</text>
+  <text x="925" y="227" class="t s">▾</text>
+  <text x="60" y="260" class="muted s">From</text>
+  <rect x="60" y="267" width="180" height="30" rx="5" class="field"/>
+  <text x="70" y="287" class="muted s">mm/dd/yyyy</text>
+  <text x="260" y="260" class="muted s">To</text>
+  <rect x="260" y="267" width="180" height="30" rx="5" class="field"/>
+  <text x="270" y="287" class="muted s">mm/dd/yyyy</text>
+  <rect x="460" y="267" width="90" height="30" rx="5" class="btnp"/>
+  <text x="505" y="287" text-anchor="middle" fill="#fff" class="s b">Search</text>
+  <rect x="560" y="267" width="80" height="30" rx="5" class="btn"/>
+  <text x="600" y="287" text-anchor="middle" class="t s">Clear</text>
+
+  <!-- Legend -->
+  <rect x="40" y="320" width="920" height="44" rx="8" class="box"/>
+  <text x="60" y="347" class="t m b">▸ What do the labels and icons mean?</text>
+  <text x="380" y="347" class="muted s">(opens a list of every result label and restaurant type)</text>
+
+  <text x="40" y="395" class="muted m">3,921 restaurants found</text>
+
+  <!-- Result 1 -->
+  <rect x="40" y="410" width="920" height="130" rx="8" class="box"/>
+  <text x="60" y="440" class="t b" font-size="18">Caffe Bene</text>
+  <rect x="880" y="423" width="60" height="24" rx="12" fill="#555"/>
+  <text x="910" y="440" text-anchor="middle" fill="#fff" class="s b">Pass</text>
+  <text x="60" y="464" class="muted m">333 MASSACHUSETTS AV, BOSTON 02115</text>
+  <path d="M62 476v5M65 476v5M68 476v5M62 481h6M65 481v9M72 490V476c2 1 2 5 0 7" fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="82" y="488" class="muted m">Eating &amp; Drinking · Sit-down restaurant.</text>
+  <text x="60" y="512" class="muted m">Latest inspection Oct 16, 2026 · 8 violations · most serious: ★★★</text>
+  <text x="60" y="532" class="muted m">2 inspections on record</text>
+
+  <!-- Result 2 -->
+  <rect x="40" y="552" width="920" height="130" rx="8" class="box"/>
+  <text x="60" y="582" class="t b" font-size="18">Growl Growl Hot Pot</text>
+  <rect x="880" y="565" width="60" height="24" rx="12" fill="#999"/>
+  <text x="910" y="582" text-anchor="middle" fill="#fff" class="s b">Fail</text>
+  <text x="60" y="606" class="muted m">48 WINTER ST, BOSTON 02111</text>
+  <path d="M62 618v5M65 618v5M68 618v5M62 623h6M65 623v9M72 632V618c2 1 2 5 0 7" fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="82" y="630" class="muted m">Eating &amp; Drinking · Sit-down restaurant.</text>
+  <text x="60" y="654" class="muted m">Latest inspection Oct 10, 2026 · 3 violations · most serious: ★★</text>
+  <text x="60" y="674" class="muted m">6 inspections on record</text>
+
+  <!-- Result 3 -->
+  <rect x="40" y="694" width="920" height="130" rx="8" class="box"/>
+  <text x="60" y="724" class="t b" font-size="18">Tasty Burger 6</text>
+  <rect x="880" y="707" width="60" height="24" rx="12" fill="#555"/>
+  <text x="910" y="724" text-anchor="middle" fill="#fff" class="s b">Pass</text>
+  <text x="60" y="748" class="muted m">48 WINTER ST, BOSTON 02111</text>
+  <path d="M62 760v5M65 760v5M68 760v5M62 765h6M65 765v9M72 774V760c2 1 2 5 0 7" fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="82" y="772" class="muted m">Eating &amp; Drinking w/ Take Out · Restaurant that also sells takeout.</text>
+  <text x="60" y="796" class="muted m">Latest inspection Oct 2, 2026 · 0 violations</text>
+  <text x="60" y="816" class="muted m">3 inspections on record</text>
+
+  <text x="40" y="852" class="muted s">Click a restaurant name to open its page.</text>
+
+  <!-- Pager -->
+  <rect x="345" y="880" width="90" height="30" rx="5" class="btn"/>
+  <text x="390" y="900" text-anchor="middle" class="t s">Previous</text>
+  <text x="500" y="900" text-anchor="middle" class="t s">Page 1 of 197</text>
+  <rect x="565" y="880" width="90" height="30" rx="5" class="btn"/>
+  <text x="610" y="900" text-anchor="middle" class="t s">Next</text>
+</svg>

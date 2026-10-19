@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" width="1000" height="760" font-family="Arial, Helvetica, sans-serif">
+  <style>
+    .box { fill: #fff; stroke: #555; stroke-width: 1.5; }
+    .field { fill: #fff; stroke: #888; stroke-width: 1.2; }
+    .t { fill: #222; }
+    .muted { fill: #777; }
+    .s { font-size: 13px; }
+    .m { font-size: 15px; }
+    .b { font-weight: bold; }
+    .btn { fill: #fff; stroke: #555; stroke-width: 1.5; }
+    .btnp { fill: #555; stroke: #555; }
+  </style>
+
+  <rect x="0" y="0" width="1000" height="760" fill="#fafafa"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1000" height="110" fill="#d9d9d9"/>
+  <text x="500" y="45" text-anchor="middle" class="t b" font-size="26">FoodSafe Boston</text>
+  <text x="500" y="70" text-anchor="middle" class="t m">Keep an eye on the places you eat at most.</text>
+  <text x="385" y="96" class="t m">Search</text>
+  <text x="455" y="96" class="t m">311 Complaints</text>
+  <text x="590" y="96" class="t m b">My favorites</text>
+  <line x1="590" y1="100" x2="682" y2="100" stroke="#222" stroke-width="1.5"/>
+
+  <text x="40" y="140" class="muted m">Restaurants you saved in this browser, with their latest inspection. Notes are private and only</text>
+  <text x="40" y="160" class="muted m">you can see them.</text>
+
+  <text x="40" y="195" class="muted m">3 saved restaurants</text>
+
+  <!-- Favorite 1 -->
+  <rect x="40" y="210" width="920" height="160" rx="8" class="box"/>
+  <text x="60" y="240" class="t b" font-size="18">Growl Growl Hot Pot</text>
+  <rect x="880" y="223" width="60" height="24" rx="12" fill="#999"/>
+  <text x="910" y="240" text-anchor="middle" fill="#fff" class="s b">Fail</text>
+  <text x="60" y="264" class="muted m">48 WINTER ST, BOSTON, MA 02111</text>
+  <path d="M62 275v5M65 275v5M68 275v5M62 280h6M65 280v9M72 289V275c2 1 2 5 0 7" fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="82" y="287" class="muted s">Eating &amp; Drinking · Sit-down restaurant.</text>
+  <text x="60" y="307" class="muted s">Last inspected Oct 10, 2026</text>
+  <text x="60" y="332" class="t m">Lunch with the team on Fridays. Check again before next week.</text>
+  <rect x="60" y="340" width="90" height="24" rx="5" class="btn"/>
+  <text x="105" y="357" text-anchor="middle" class="t s">Edit note</text>
+  <rect x="158" y="340" width="75" height="24" rx="5" fill="#fff" stroke="#c62828" stroke-width="1.5"/>
+  <text x="195" y="357" text-anchor="middle" fill="#c62828" class="s">Remove</text>
+
+  <!-- Favorite 2, editing the note -->
+  <rect x="40" y="382" width="920" height="200" rx="8" class="box"/>
+  <text x="60" y="412" class="t b" font-size="18">Caffe Bene</text>
+  <rect x="880" y="395" width="60" height="24" rx="12" fill="#555"/>
+  <text x="910" y="412" text-anchor="middle" fill="#fff" class="s b">Pass</text>
+  <text x="60" y="436" class="muted m">333 MASSACHUSETTS AV, BOSTON, MA 02115</text>
+  <path d="M62 447v5M65 447v5M68 447v5M62 452h6M65 452v9M72 461V447c2 1 2 5 0 7" fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="82" y="459" class="muted s">Eating &amp; Drinking · Sit-down restaurant.</text>
+  <text x="60" y="479" class="muted s">Last inspected Oct 16, 2026</text>
+  <text x="60" y="502" class="muted s">Private note</text>
+  <rect x="60" y="509" width="880" height="34" rx="5" class="field"/>
+  <text x="70" y="531" class="t s">Kid friendly, ask about peanuts|</text>
+  <rect x="60" y="551" width="90" height="24" rx="5" class="btnp"/>
+  <text x="105" y="568" text-anchor="middle" fill="#fff" class="s b">Save note</text>
+  <rect x="158" y="551" width="70" height="24" rx="5" class="btn"/>
+  <text x="193" y="568" text-anchor="middle" class="t s">Cancel</text>
+  <text x="240" y="568" class="muted s">(the note turns into this small form when you press Edit note)</text>
+
+  <!-- Favorite 3, no note -->
+  <rect x="40" y="594" width="920" height="140" rx="8" class="box"/>
+  <text x="60" y="624" class="t b" font-size="18">Tasty Burger 6</text>
+  <rect x="880" y="607" width="60" height="24" rx="12" fill="#555"/>
+  <text x="910" y="624" text-anchor="middle" fill="#fff" class="s b">Pass</text>
+  <text x="60" y="648" class="muted m">48 WINTER ST, BOSTON, MA 02111</text>
+  <text x="60" y="670" class="muted s">Last inspected Oct 2, 2026</text>
+  <text x="60" y="695" class="muted m" font-style="italic">No note yet.</text>
+  <rect x="60" y="703" width="90" height="24" rx="5" class="btn"/>
+  <text x="105" y="720" text-anchor="middle" class="t s">Add note</text>
+  <rect x="158" y="703" width="75" height="24" rx="5" fill="#fff" stroke="#c62828" stroke-width="1.5"/>
+  <text x="195" y="720" text-anchor="middle" fill="#c62828" class="s">Remove</text>
+</svg>

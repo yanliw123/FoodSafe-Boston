@@ -27,8 +27,12 @@ The City of Boston posts every restaurant health inspection online, but the data
 
 ### 311 complaints (Jiaying Guo)
 
-- See food safety complaints residents reported to Boston 311 at a restaurant's address.
-- Browse complaints on a map and file new complaints.
+- Search the food safety complaints sent to Boston 311 since 2024 by street, neighborhood or business name, and filter them by neighborhood, type (unsanitary establishment, unsanitary food, employee hygiene or food alert), status (open or closed) and date range.
+- See the results on a map with the number of complaints of each type. Click a dot or a complaint to see its details and the city's response.
+- Boston 311 only records the address, so each complaint lists the food businesses at that address, matched by location with the city's inspection data (within 5 meters).
+- File a new complaint with the restaurant name, address, neighborhood, type, date and description, and click the map to mark the place.
+- Edit, mark as resolved or delete the complaints you filed. Like reviews, each browser can only change its own complaints, and the city's 311 complaints are read only.
+- Each restaurant page has a 311 Complaints tab with the complaints at its address, and a link to file one.
 
 ## Screenshot
 
@@ -38,7 +42,7 @@ The City of Boston posts every restaurant health inspection online, but the data
 
 - Deployed app: <!-- TODO -->
 - Demo video: <!-- TODO -->
-- Design document and mockups: <!-- TODO -->
+- Design document and mockups: [design/DesignDocument.md](design/DesignDocument.md)
 
 ## Tech Stack
 
@@ -53,7 +57,7 @@ The City of Boston posts every restaurant health inspection online, but the data
 | `inspections` | [Food Establishment Inspections](https://data.boston.gov/dataset/food-establishment-inspections), 2026 inspections | Read only, loaded by the import   |
 | `reviews`     | Written by users in the app                                                                                        | The browser that wrote the review |
 | `favorites`   | Saved by users in the app, private to each browser                                                                 | The browser that saved it         |
-| `complaints`  | [311 Service Requests](https://data.boston.gov/dataset/311-service-requests) and users                             | Users                             |
+| `complaints`  | [311 Service Requests](https://data.boston.gov/dataset/311-service-requests) since 2024, and diners                | Filer's browser; 311 is read only |
 
 ## API
 
@@ -69,7 +73,15 @@ The City of Boston posts every restaurant health inspection online, but the data
 | POST   | `/api/favorites`                                         | Save a restaurant                                                                                  |
 | PUT    | `/api/favorites/:id`                                     | Edit the note on a saved restaurant                                                                |
 | DELETE | `/api/favorites/:id`                                     | Remove a saved restaurant                                                                          |
-| GET    | `/api/complaints`                                        | List complaints                                                                                    |
+| GET    | `/api/complaints?q=&neighborhood=&type=&status=&page=`   | Search complaints, newest first, with the count of each type. Also takes `from` and `to`           |
+| GET    | `/api/complaints?address=&zip=`                          | Complaints at one restaurant's address                                                             |
+| GET    | `/api/complaints/map`                                    | Every matching complaint for the map, same filters as above                                        |
+| GET    | `/api/complaints/neighborhoods`                          | Neighborhood names for the filter                                                                  |
+| GET    | `/api/complaints/:id`                                    | One complaint with the city's response                                                             |
+| POST   | `/api/complaints`                                        | File a complaint                                                                                   |
+| PUT    | `/api/complaints/:id`                                    | Edit your complaint                                                                                |
+| PATCH  | `/api/complaints/:id`                                    | Mark your complaint as resolved (`status: "Closed"`) or open it again                              |
+| DELETE | `/api/complaints/:id`                                    | Delete your complaint                                                                              |
 
 ## Instructions to Build
 
@@ -84,16 +96,21 @@ The City of Boston posts every restaurant health inspection online, but the data
    npm run import:inspections
    ```
    This loads the 2026 inspections. Re-running it replaces the imported data and keeps reviews and favorites.
-5. (Optional) Add sample reviews to 100 random restaurants:
+5. Import the 311 complaints. This downloads them from the Analyze Boston API, so there is no file to save:
+   ```bash
+   npm run import:complaints
+   ```
+   This loads the food safety complaints from 2024 to now. Re-running it replaces the 311 data and keeps complaints filed in the app.
+6. (Optional) Add sample reviews to 100 random restaurants:
    ```bash
    npm run seed:reviews
    ```
    Re-running it replaces the old sample reviews and keeps reviews written in the app.
-6. Start the server:
+7. Start the server:
    ```bash
    npm start
    ```
-7. Open http://localhost:3000.
+8. Open http://localhost:3000.
 
 ## Project Structure
 
