@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 980" width="1000" height="980" font-family="Arial, Helvetica, sans-serif">
+  <style>
+    .box { fill: #fff; stroke: #555; stroke-width: 1.5; }
+    .field { fill: #fff; stroke: #888; stroke-width: 1.2; }
+    .t { fill: #222; }
+    .muted { fill: #777; }
+    .s { font-size: 13px; }
+    .m { font-size: 15px; }
+    .b { font-weight: bold; }
+    .btn { fill: #fff; stroke: #555; stroke-width: 1.5; }
+    .btnp { fill: #555; stroke: #555; }
+    .road { stroke: #cfcfcf; stroke-width: 5; fill: none; }
+  </style>
+
+  <rect x="0" y="0" width="1000" height="980" fill="#fafafa"/>
+  <text x="40" y="28" class="muted s">Bottom of the complaints page: file a new complaint, or edit one you filed</text>
+  <text x="630" y="28" class="muted s">Details dialog for a complaint you filed</text>
+
+  <!-- Form -->
+  <rect x="40" y="40" width="560" height="910" rx="8" class="box"/>
+  <text x="60" y="80" class="t b" font-size="22">File a complaint</text>
+  <text x="60" y="106" class="muted m">Saw a hygiene problem? Warn other diners. Only this browser</text>
+  <text x="60" y="125" class="muted m">can edit or delete the complaints it filed.</text>
+
+  <text x="60" y="160" class="muted s">Restaurant name</text>
+  <rect x="60" y="167" width="250" height="32" rx="5" class="field"/>
+  <text x="70" y="188" class="t s">Growl Growl Hot Pot</text>
+  <text x="330" y="160" class="muted s">Address</text>
+  <rect x="330" y="167" width="250" height="32" rx="5" class="field"/>
+  <text x="340" y="188" class="t s">48 Winter St</text>
+
+  <text x="60" y="225" class="muted s">Zip code</text>
+  <rect x="60" y="232" width="250" height="32" rx="5" class="field"/>
+  <text x="70" y="253" class="t s">02111</text>
+  <text x="330" y="225" class="muted s">Neighborhood</text>
+  <rect x="330" y="232" width="250" height="32" rx="5" class="field"/>
+  <text x="340" y="253" class="t s">Downtown / Financial District</text>
+
+  <text x="60" y="290" class="muted s">Type</text>
+  <rect x="60" y="297" width="250" height="32" rx="5" class="field"/>
+  <text x="70" y="318" class="t s">Unsanitary food</text>
+  <text x="295" y="318" class="t s">▾</text>
+  <text x="330" y="290" class="muted s">Date</text>
+  <rect x="330" y="297" width="250" height="32" rx="5" class="field"/>
+  <text x="340" y="318" class="t s">10/19/2026</text>
+
+  <text x="60" y="360" class="muted s">What happened?</text>
+  <rect x="60" y="367" width="520" height="100" rx="5" class="field"/>
+  <text x="70" y="390" class="t s">The tables were sticky and I saw a bug near the</text>
+  <text x="70" y="408" class="t s">drinks fridge.</text>
+
+  <!-- Location picker -->
+  <rect x="60" y="490" width="520" height="330" rx="6" fill="#fff" stroke="#888"/>
+  <rect x="72" y="481" width="64" height="18" fill="#fff"/>
+  <text x="76" y="495" class="muted s">Location</text>
+  <text x="76" y="522" class="muted m">Marked at 42.35586, -71.06190. Click again to move it.</text>
+  <rect x="76" y="535" width="488" height="270" rx="6" fill="#eef2f0" stroke="#999"/>
+  <path class="road" d="M76 620 C 220 600, 380 650, 564 610"/>
+  <path class="road" d="M260 535 C 280 620, 240 720, 290 805"/>
+  <path class="road" d="M76 740 C 250 720, 420 760, 564 730"/>
+  <rect x="88" y="547" width="24" height="48" rx="3" class="box"/>
+  <text x="100" y="566" text-anchor="middle" class="t m b">+</text>
+  <line x1="88" y1="571" x2="112" y2="571" stroke="#555"/>
+  <text x="100" y="589" text-anchor="middle" class="t m b">−</text>
+  <circle cx="330" cy="660" r="10" fill="#3388ff" fill-opacity="0.3" stroke="#3388ff" stroke-width="3"/>
+  <text x="348" y="665" class="t s">← click the map to mark the place</text>
+
+  <rect x="60" y="845" width="130" height="34" rx="5" class="btnp"/>
+  <text x="125" y="867" text-anchor="middle" fill="#fff" class="s b">File complaint</text>
+  <rect x="200" y="845" width="80" height="34" rx="5" class="btn" stroke-dasharray="4 3"/>
+  <text x="240" y="867" text-anchor="middle" class="t s">Cancel</text>
+  <text x="290" y="867" class="muted s">(only shown when editing)</text>
+  <text x="60" y="910" class="muted m">Thanks! Your complaint is on the map.</text>
+
+  <!-- Details dialog -->
+  <rect x="630" y="40" width="330" height="560" rx="8" fill="#fff" stroke="#555" stroke-width="2"/>
+  <text x="650" y="78" class="t b" font-size="20">48 Winter St</text>
+
+  <text x="650" y="115" class="muted s">Type</text>
+  <circle cx="766" cy="110" r="5" fill="#b45309"/>
+  <text x="778" y="115" class="t s">Unsanitary food</text>
+  <text x="650" y="145" class="muted s">Status</text>
+  <rect x="760" y="131" width="50" height="20" rx="10" fill="#555"/>
+  <text x="785" y="145" text-anchor="middle" fill="#fff" font-size="12" class="b">Open</text>
+  <text x="650" y="175" class="muted s">Reported</text>
+  <text x="760" y="175" class="t s">Oct 19, 2026</text>
+  <text x="650" y="205" class="muted s">Address</text>
+  <text x="760" y="205" class="t s">48 Winter St, 02111</text>
+  <text x="650" y="235" class="muted s">Restaurant</text>
+  <text x="760" y="235" class="t s">Growl Growl Hot Pot</text>
+  <text x="650" y="265" class="muted s">Neighborhood</text>
+  <text x="760" y="265" class="t s">Downtown / Financial</text>
+  <text x="760" y="283" class="t s">District</text>
+  <text x="650" y="313" class="muted s">Filed by</text>
+  <text x="760" y="313" class="t s">A diner, in this app</text>
+  <text x="650" y="343" class="muted s">Description</text>
+  <text x="760" y="343" class="t s">The tables were sticky</text>
+  <text x="760" y="361" class="t s">and I saw a bug near</text>
+  <text x="760" y="379" class="t s">the drinks fridge.</text>
+
+  <rect x="650" y="410" width="60" height="30" rx="5" class="btn"/>
+  <text x="680" y="430" text-anchor="middle" class="t s">Edit</text>
+  <rect x="718" y="410" width="120" height="30" rx="5" class="btn"/>
+  <text x="778" y="430" text-anchor="middle" class="t s">Mark resolved</text>
+  <rect x="846" y="410" width="70" height="30" rx="5" fill="#fff" stroke="#c62828" stroke-width="1.5"/>
+  <text x="881" y="430" text-anchor="middle" fill="#c62828" class="s">Delete</text>
+  <text x="650" y="465" class="muted s">These three buttons only show for</text>
+  <text x="650" y="482" class="muted s">complaints this browser filed.</text>
+  <text x="650" y="499" class="muted s">311 complaints from the city have none.</text>
+
+  <rect x="650" y="540" width="70" height="30" rx="5" class="btn"/>
+  <text x="685" y="560" text-anchor="middle" class="t s">Close</text>
+</svg>
