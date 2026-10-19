@@ -34,13 +34,39 @@ The City of Boston posts every restaurant health inspection online, but the data
 - Edit, mark as resolved or delete the complaints you filed. Like reviews, each browser can only change its own complaints, and the city's 311 complaints are read only.
 - Each restaurant page has a 311 Complaints tab with the complaints at its address, and a link to file one.
 
-## Screenshot
+## Screenshots
 
-<!-- TODO: add screenshot -->
+Search restaurants by name, street or zip code:
+
+![Search page](screenshots/1-search.png)
+
+A restaurant's inspection history, with the Save button:
+
+![Restaurant page](screenshots/2-restaurant-inspections.png)
+
+Reviews on a restaurant page:
+
+![Reviews](screenshots/3-reviews.png)
+
+My favorites, with a private note:
+
+![My favorites](screenshots/4-favorites.png)
+
+311 complaints, on a map and in a list, with the details of one complaint:
+
+![311 Complaints page](screenshots/5-complaints.png)
+
+![Complaints map and list](screenshots/5b-complaints-map-list.png)
+
+![Complaint details](screenshots/5c-complaint-detail.png)
+
+On a phone:
+
+<img src="screenshots/6-mobile.png" alt="Restaurant page on a phone" width="320" />
 
 ## Links
 
-- Deployed app: <!-- TODO -->
+- Deployed app: <https://foodsafe-boston.onrender.com>
 - Demo video: <!-- TODO -->
 - Design document and mockups: [design/DesignDocument.md](design/DesignDocument.md)
 
