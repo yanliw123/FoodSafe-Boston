@@ -42,6 +42,12 @@
   gap: 1rem;
 }
 
+.result-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .result-header a {
   font-size: 1.1rem;
   font-weight: 600;

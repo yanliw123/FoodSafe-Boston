@@ -36,6 +36,7 @@ async function readInspections() {
     if (!inspections.has(key)) {
       inspections.set(key, {
         restaurantName: row.businessname?.trim(),
+        type: row.descript?.trim(),
         licenseNo: row.licenseno,
         address: row.address?.replace(/\s+/g, " ").trim(),
         city: row.city?.replace(/\/$/, "").trim(),

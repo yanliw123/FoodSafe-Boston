@@ -11,6 +11,10 @@
   color: var(--color-muted);
 }
 
+.restaurant-type {
+  margin: 0 0 0.25rem;
+}
+
 .restaurant-links {
   display: flex;
   gap: 1rem;

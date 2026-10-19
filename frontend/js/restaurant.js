@@ -1,4 +1,4 @@
-import { createBadge, fillLegend } from "./results.js";
+import { createBadge, createTypeIcon, fillLegend } from "./results.js";
 import { initReviews } from "./reviews.js";
 
 const statusEl = document.getElementById("status");
@@ -83,12 +83,20 @@ function createInspectionItem(inspection) {
 }
 
 function showRestaurant(inspections) {
-  const { restaurantName, address, city, zip } = inspections[0];
+  const { restaurantName, address, city, zip, type } = inspections[0];
   const location = `${address}, ${city}, MA ${zip}`;
 
   document.title = `${restaurantName} | FoodSafe Boston`;
   document.getElementById("restaurant-name").textContent = restaurantName;
   document.getElementById("restaurant-address").textContent = location;
+
+  const typeEl = document.getElementById("restaurant-type");
+  const icon = createTypeIcon(type);
+  if (icon) {
+    icon.append(type);
+    typeEl.replaceChildren(icon);
+  }
+  typeEl.hidden = !icon;
   document.getElementById("maps-link").href =
     `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${restaurantName}, ${location}`)}`;
   document.getElementById("yelp-link").href =

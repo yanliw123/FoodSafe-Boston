@@ -1,4 +1,4 @@
-import { createBadge, fillLegend } from "./results.js";
+import { createBadge, createTypeIcon, fillLegend } from "./results.js";
 
 const form = document.getElementById("search-form");
 const statusEl = document.getElementById("status");
@@ -30,7 +30,13 @@ function createResultItem(inspection) {
 
   const badge = createBadge(inspection.result);
 
-  header.append(name, badge);
+  const title = document.createElement("span");
+  title.className = "result-title";
+  const icon = createTypeIcon(inspection.type);
+  if (icon) title.append(icon);
+  title.append(name);
+
+  header.append(title, badge);
 
   const address = document.createElement("p");
   address.className = "result-address";
