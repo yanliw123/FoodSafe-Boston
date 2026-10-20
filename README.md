@@ -70,6 +70,8 @@ On a phone:
 - Demo video: <https://drive.google.com/file/d/1Uq2wKflHmEfAk4fg1HcI1AIM5TmfkeDj/view?usp=sharing>
 - Demo video (Yanli Wang): <https://youtu.be/sdBzOAPtIYo>
 - Slide presentation (Yanli Wang): <https://youtu.be/XQwIqPnZaNE>
+- Demo video (Jiaying Guo): <https://youtu.be/ow5BhxdSKbI>
+- Slide presentation (Jiaying Guo): <https://youtu.be/wTUHl9UY6WQ>
 - Design document and mockups: [design/DesignDocument.md](design/DesignDocument.md)
 
 ## Tech Stack
