@@ -68,6 +68,8 @@ On a phone:
 
 - Deployed app: <https://foodsafe-boston.onrender.com>
 - Demo video: <https://drive.google.com/file/d/1Uq2wKflHmEfAk4fg1HcI1AIM5TmfkeDj/view?usp=sharing>
+- Demo video (Yanli Wang): <https://youtu.be/sdBzOAPtIYo>
+- Slide presentation (Yanli Wang): <https://youtu.be/XQwIqPnZaNE>
 - Design document and mockups: [design/DesignDocument.md](design/DesignDocument.md)
 
 ## Tech Stack
