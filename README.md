@@ -141,7 +141,7 @@ On a phone:
    npm start
    ```
 8. Open http://localhost:3000.
-
+//Hey I'm not sure if youve missed it, but the AI disclosure section is missing.
 ## Project Structure
 
 ```
