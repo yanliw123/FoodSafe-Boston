@@ -32,7 +32,6 @@ function toLatLng(complaint) {
   const [lng, lat] = complaint.location.coordinates;
   return [lat, lng];
 }
-
 // The map of search results. Open complaints are solid, closed ones faded.
 export function createComplaintMap(element, onSelect) {
   const map = createBaseMap(element);
@@ -48,7 +47,8 @@ export function createComplaintMap(element, onSelect) {
           weight: 1,
           color,
           fillColor: color,
-          fillOpacity: point.status === "Open" ? 0.9 : 0.35,
+          fillOpacity: point.status === "Open" ? 0.9 : 0.35, 
+// Really liked the design choice of having open complaints as solid and closed as faded.
         })
           .bindTooltip(createTooltip(point))
           .on("click", () => onSelect(point._id))
