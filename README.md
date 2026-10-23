@@ -153,6 +153,10 @@ frontend/        Static HTML pages, CSS modules and client JS
 design/          Design document and mockups
 ```
 
+## AI Disclosure
+
+AI assistance was used for pitching ideas, planning the project structure, debugging, checking functionality, and drafting slides.
+
 ## License
 
 [MIT](LICENSE)
