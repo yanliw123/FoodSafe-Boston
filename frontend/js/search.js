@@ -2,6 +2,7 @@ import { createBadge, createTypeLabel, fillLegend } from "./results.js";
 
 const form = document.getElementById("search-form");
 const statusEl = document.getElementById("status");
+const statsEl = document.getElementById("stats");
 const resultsEl = document.getElementById("results");
 const prevBtn = document.getElementById("prev");
 const nextBtn = document.getElementById("next");
@@ -62,7 +63,28 @@ function createResultItem(inspection) {
   return li;
 }
 
+// Shows how many restaurants in the zip code pass or fail right now
+async function loadStats() {
+  const zip = form.elements.zip.value.trim();
+  if (!zip) {
+    statsEl.textContent = "";
+    return;
+  }
+
+  try {
+    const res = await fetch(
+      `/api/inspections/stats?zip=${encodeURIComponent(zip)}`,
+    );
+    if (!res.ok) throw new Error(`Server error ${res.status}`);
+    const { total, results } = await res.json();
+    statsEl.textContent = `${zip}: ${total} restaurants · ${results.Pass ?? 0} Pass · ${results.Fail ?? 0} Fail`;
+  } catch {
+    statsEl.textContent = "";
+  }
+}
+
 async function search() {
+  loadStats();
   const params = new URLSearchParams();
   for (const [key, value] of new FormData(form)) {
     if (value.trim()) params.set(key, value.trim());

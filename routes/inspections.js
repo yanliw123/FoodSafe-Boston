@@ -67,6 +67,27 @@ router.get("/", async (req, res) => {
   res.json({ items, total, page, pageSize: PAGE_SIZE });
 });
 
+// How many restaurants have each result as their latest inspection
+// GET /api/inspections/stats?zip=02115
+router.get("/stats", async (req, res) => {
+  const { zip } = req.query;
+  const match = zip ? { zip: zip.trim() } : {};
+
+  const counts = await getDB()
+    .collection("inspections")
+    .aggregate([
+      { $match: match },
+      { $sort: { licenseNo: 1, date: -1 } },
+      { $group: { _id: "$licenseNo", result: { $first: "$result" } } },
+      { $group: { _id: "$result", count: { $sum: 1 } } },
+    ])
+    .toArray();
+
+  const results = Object.fromEntries(counts.map((c) => [c._id, c.count]));
+  const total = counts.reduce((sum, c) => sum + c.count, 0);
+  res.json({ zip: zip ?? null, total, results });
+});
+
 // All inspections for one restaurant, newest first
 // GET /api/inspections/restaurant/123456
 router.get("/restaurant/:licenseNo", async (req, res) => {
